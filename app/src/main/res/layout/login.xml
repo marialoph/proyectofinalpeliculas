@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="26dp"
+    android:background="#7c9ecc"
+    tools:context=".MainActivity">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="99dp"
+        >
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="117dp"
+            android:layout_height="135dp"
+            android:gravity="center"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="50dp"
+            app:srcCompat="@drawable/claqueta"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:background="@drawable/cajas"
+            android:hint="Introduce su email"
+            android:inputType="textEmailAddress"
+            android:layout_marginBottom="16dp"
+            tools:ignore="MissingConstraints"
+            />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:hint="Introduce su contraseña"
+            android:inputType="textPassword"
+            tools:ignore="MissingConstraints"
+            android:background="@drawable/cajas"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="165dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="30dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Guardar mail"
+            android:layout_marginStart="16dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Guardar contrañea"
+            android:layout_marginStart="16dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="176dp"
+        android:background="#5564eb"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:textColor="@color/white"
+        android:text="Iniciar sesión"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onLoginButtonClick"
+        tools:context=".MainActivity"
+        tools:ignore="NotSibling" />
+
+    <LinearLayout
+        android:layout_width="165dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <RadioGroup
+            android:layout_width="192dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="ver pelicula" />
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="176dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="info pelicula" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,86 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width ="match_parent"
+    android:layout_height ="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal ="16dp"
+    android:layout_marginVertical ="8dp"
+    app:cardCornerRadius ="30dp"
+    app:cardElevation ="50dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width ="match_parent"
+        android:layout_height ="wrap_content"
+        android:background="#95C8D5"
+        >
+
+        <ImageView
+            android:id="@+id/iv_pelis"
+            android:layout_width ="150dp"
+            android:layout_height ="150dp"
+            app:layout_constraintStart_toStartOf ="parent"
+            app:layout_constraintTop_toTopOf ="parent"
+            tools:background ="@color/black"
+            />
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width ="wrap_content"
+            android:layout_height ="wrap_content"
+            tools:text="Titulo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toEndOf ="@id/iv_pelis"
+            app:layout_constraintEnd_toEndOf ="parent"
+            app:layout_constraintTop_toTopOf ="parent"/>
+        <TextView
+            android:id="@+id/director"
+            android:layout_width ="wrap_content"
+            android:layout_height ="wrap_content"
+            app:layout_constraintStart_toEndOf ="@id/iv_pelis"
+            app:layout_constraintTop_toBottomOf ="@id/titulo"
+            app:layout_constraintEnd_toEndOf ="parent"
+            tools:text="Director"
+            android:textColor = "#FFFFFF"
+            android:textSize = "18sp"
+            android:layout_marginTop ="15dp"
+            />
+        <TextView
+            android:id="@+id/genero"
+            android:layout_width ="wrap_content"
+            android:layout_height ="wrap_content"
+            app:layout_constraintStart_toEndOf ="@id/iv_pelis"
+            app:layout_constraintTop_toBottomOf ="@id/director"
+            app:layout_constraintEnd_toEndOf ="parent"
+            tools:text="Genero"
+            android:textColor = "#FFFFFF"
+            android:textSize = "18sp"
+            />
+        <TextView
+            android:id="@+id/anno"
+            android:layout_width ="wrap_content"
+            android:layout_height ="wrap_content"
+            app:layout_constraintStart_toEndOf ="@id/iv_pelis"
+            app:layout_constraintTop_toBottomOf ="@id/genero"
+            app:layout_constraintEnd_toEndOf ="parent"
+            tools:text="Año"
+            android:textColor = "#577DCA"
+            android:textSize = "20sp"
+            />
+
+
+        <ImageView
+            android:id="@+id/btn_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="12dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout >
+</androidx.cardview.widget.CardView >
