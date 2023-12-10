@@ -36,7 +36,7 @@ class Controller ( val context : Context){
     }
     private fun deletePeliculas(pos: Int) {
 
-        Toast.makeText(context, "Has eliminado esta peliculas ${listPelis[pos].titulo}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Has eliminado la pelicula ${listPelis[pos].titulo}", Toast.LENGTH_SHORT).show()
         listPelis.removeAt(pos)
         adapter.notifyItemRemoved(pos)
     }
