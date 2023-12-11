@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="382dp"
+        android:layout_height="535dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="16dp">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="117dp"
+            android:layout_height="135dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            app:srcCompat="@drawable/claqueta"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="149dp"
+            tools:layout_editor_absoluteY="89dp" />
+
+        <EditText
+            android:id="@+id/titulo"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:hint="Titulo"
+
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/director"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:hint="Director"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/genero"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:hint="Genero"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/anno"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Año"
+            tools:ignore="MissingConstraints" />
+
+        <EditText
+            android:id="@+id/image"
+            android:layout_width="343dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Imagen url"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

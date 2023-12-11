@@ -57,10 +57,10 @@
 
 
     <LinearLayout
-        android:layout_width="165dp"
-        android:layout_height="70dp"
+        android:layout_width="187dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="30dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,17 +70,17 @@
             android:id="@+id/checkBox1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:checked="false"
-            android:text="Guardar mail"
-            android:layout_marginStart="16dp" />
+            android:text="Guardar mail" />
 
         <CheckBox
             android:id="@+id/checkBox2"
-            android:layout_width="wrap_content"
+            android:layout_width="165dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:checked="false"
-            android:text="Guardar contrañea"
-            android:layout_marginStart="16dp"/>
+            android:text="Guardar contraseña" />
 
     </LinearLayout>
 

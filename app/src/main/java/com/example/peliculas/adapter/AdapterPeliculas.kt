@@ -11,7 +11,8 @@ import java.util.zip.Inflater
 
 class AdapterPeliculas(
     private val peliculasList: List<Peliculas>,
-    var deleteOnCLick:(Int) -> Unit
+    var deleteOnCLick:(Int) -> Unit,
+    var updateOnClick: (Int) -> Unit
 ) : RecyclerView.Adapter<ViewPeliculas>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPeliculas {
@@ -20,7 +21,8 @@ class AdapterPeliculas(
 
         return ViewPeliculas(
             layoutInflater.inflate(layoutItemPelis,parent,false),
-            deleteOnCLick
+            deleteOnCLick,
+            updateOnClick
             )
 
     }

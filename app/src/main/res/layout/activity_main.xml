@@ -9,6 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/my_recycler_view"
         android:layout_width ="match_parent"
+        android:layout_marginTop="20dp"
         android:layout_height ="wrap_content"
         android:padding="25dp"
         />
@@ -17,6 +18,7 @@
         android:layout_width ="wrap_content"
         android:layout_height ="wrap_content"
         android:layout_gravity ="right"
+        android:src="@drawable/baseline_add_circle_outline_24"
 
         />
 </FrameLayout>

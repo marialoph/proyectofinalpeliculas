@@ -10,7 +10,8 @@ import com.bumptech.glide.Glide
 
 class ViewPeliculas (
     view: View,
-    var deleteOnClick: (Int) -> Unit
+    var deleteOnClick: (Int) -> Unit,
+    var updateOnClick:(Int) ->Unit
     ) : RecyclerView.ViewHolder(view) {
     private val titulo: TextView = view.findViewById(R.id.titulo)
     private val director: TextView = view.findViewById(R.id.director)
@@ -37,6 +38,9 @@ class ViewPeliculas (
     private fun setOnClickListener() {
        itemView.findViewById<ImageView>(R.id.btn_delete).setOnClickListener {
             deleteOnClick(adapterPosition)
+        }
+        itemView.findViewById<ImageView>(R.id.btn_edit).setOnClickListener {
+            updateOnClick(adapterPosition)
         }
     }
 }
