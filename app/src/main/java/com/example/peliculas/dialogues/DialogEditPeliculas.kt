@@ -23,7 +23,6 @@ class DialogEditPeliculas(
     val updatePeliculaDialog: (Peliculas) -> Unit
 ) : DialogFragment() {
 
-    // ... Otras variables ...
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -46,13 +45,12 @@ class DialogEditPeliculas(
             imagen.text = arguments.getString(ARGUMENT_IMAGE)
 
             view.findViewById<Button>(R.id.btn_edit).setOnClickListener {
-                // Llamar a tu función de actualización con la PeliculaToUpdate.
                 updatePeliculaDialog(PeliculaToUpdate)
             }
         }
     }
 
-    // ... Resto de tu código ...
+
 }
 
 

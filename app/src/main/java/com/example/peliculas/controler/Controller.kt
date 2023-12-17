@@ -54,42 +54,35 @@ class Controller ( val context : Context){
         val builder = AlertDialog.Builder(context)
         builder.setTitle("Editar Película")
 
-        // Inflar tu diseño personalizado para el diálogo de edición
         val view = LayoutInflater.from(context).inflate(R.layout.newpelicula, null)
         builder.setView(view)
 
-        // Obtener referencias a las vistas del diseño
-        val tituloEditText = view.findViewById<EditText>(R.id.titulo)
-        val generoEditText = view.findViewById<EditText>(R.id.director)
-        val annoEditText = view.findViewById<EditText>(R.id.genero)
-        val directorEditText = view.findViewById<EditText>(R.id.anno)
-        val imagenEditText = view.findViewById<EditText>(R.id.image)
+        val titulo = view.findViewById<EditText>(R.id.titulo)
+        val genero = view.findViewById<EditText>(R.id.director)
+        val anno = view.findViewById<EditText>(R.id.genero)
+        val director = view.findViewById<EditText>(R.id.anno)
+        val imagen = view.findViewById<EditText>(R.id.image)
 
-        // Establecer los valores actuales de la película en las vistas
-        tituloEditText.setText(pelicula.titulo)
-        generoEditText.setText(pelicula.genero)
-        annoEditText.setText(pelicula.anno.toString())
-        directorEditText.setText(pelicula.diretor)
-        imagenEditText.setText(pelicula.imageUrl)
+        titulo.setText(pelicula.titulo)
+        genero.setText(pelicula.genero)
+        anno.setText(pelicula.anno.toString())
+        director.setText(pelicula.diretor)
+        imagen.setText(pelicula.imageUrl)
 
         builder.setPositiveButton("Guardar") { dialog, which ->
-            // Obtener los nuevos valores de las vistas
-            val nuevoTitulo = tituloEditText.text.toString()
-            val nuevoGenero = generoEditText.text.toString()
-            val nuevoAnno = annoEditText.text.toString()
-            val nuevoDirector = directorEditText.text.toString()
-            val nuevaImagen = imagenEditText.text.toString()
+            val nuevoTitulo = titulo.text.toString()
+            val nuevoGenero = genero.text.toString()
+            val nuevoAnno = anno.text.toString()
+            val nuevoDirector = director.text.toString()
+            val nuevaImagen = imagen.text.toString()
 
-            // Validar que el título no esté vacío
             if (nuevoTitulo.isNotEmpty()) {
-                // Actualizar los atributos de la película
                 pelicula.titulo = nuevoTitulo
                 pelicula.genero = nuevoGenero
                 pelicula.anno = nuevoAnno.toIntOrNull() ?: 0
                 pelicula.diretor = nuevoDirector
                 pelicula.imageUrl = nuevaImagen
 
-                // Notificar al adaptador que se ha actualizado un elemento
                 adapter.notifyItemChanged(position)
 
                 Toast.makeText(context, "Película actualizada correctamente", Toast.LENGTH_SHORT).show()
