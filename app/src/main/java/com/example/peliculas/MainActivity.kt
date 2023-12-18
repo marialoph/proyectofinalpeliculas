@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     dialog.dismiss()
-                    Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Se ha creado la pelicula", Toast.LENGTH_SHORT).show()
                 }
             }
 
