@@ -1,24 +1,106 @@
-<?xml version ="1.0" encoding="utf-8"?>
-<FrameLayout
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width ="match_parent"
-    android:layout_height ="match_parent"
-    tools:context=".MainActivity" >
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/my_recycler_view"
-        android:layout_width ="match_parent"
-        android:layout_marginTop="20dp"
-        android:layout_height ="wrap_content"
-        android:padding="25dp"
-        />
-    <ImageButton
-        android:id="@+id/btn_add"
-        android:layout_width ="wrap_content"
-        android:layout_height ="wrap_content"
-        android:layout_gravity ="right"
-        android:src="@drawable/baseline_add_circle_outline_24"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-        />
-</FrameLayout>
+    <!-- Contenido principal (app_bar_main) -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- App Bar Layout -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.peliculas.AppBarOverlay">
+
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/Theme.peliculas.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- Content Layout -->
+        <FrameLayout
+            android:id="@+id/nav_host_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginBottom="45dp"
+                android:padding="20dp" />
+
+        </FrameLayout>
+
+        <!-- FloatingActionButton -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:srcCompat="@drawable/baseline_add_circle_outline_24" />
+
+        <!-- BottomAppBar -->
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/appBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_gravity="bottom">
+
+
+                <!-- Botones de acción en el lado derecho -->
+                <ImageButton
+                    android:id="@+id/casa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/casa"
+                    android:layout_marginStart="60dp"
+                   />
+
+                <ImageButton
+                    android:id="@+id/aboutus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="157dp"
+                    android:src="@drawable/aboutus" />
+
+                <!-- Puedes agregar más botones según tus necesidades -->
+
+
+
+            <!-- Contenido del BottomAppBar, como acciones, menús, etc. -->
+
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- Cajón de navegación (NavigationView) -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

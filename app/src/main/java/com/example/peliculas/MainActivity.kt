@@ -1,24 +1,54 @@
 package com.example.peliculas
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupWithNavController
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.peliculas.controler.Controller
 import com.example.peliculas.databinding.ActivityMainBinding
 import com.example.peliculas.models.Peliculas
+import com.google.android.material.bottomappbar.BottomAppBar
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
+    lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var controller : Controller
     lateinit var binding : ActivityMainBinding
+    lateinit var navController: NavController
+    private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var fab: FloatingActionButton
+    private lateinit var imagenHome : ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding =ActivityMainBinding.inflate(layoutInflater)
         setContentView( binding.root)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        // Acceder al BottomNavigationView dentro del BottomAppBar
+
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+
         init()
     }
     fun init(){
@@ -62,8 +92,54 @@ class MainActivity : AppCompatActivity() {
             val alertDialog = builder.create()
             alertDialog.show()
         }
+        val casaView: View = findViewById(R.id.casa)
+
+        casaView.setOnClickListener {
+            startActivity(Intent(this, HomeMain::class.java))
+            Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+        }
+
+     val aboutUs : View = findViewById(R.id.aboutus)
+        aboutUs.setOnClickListener {
+            startActivity(Intent(this, AboutUs::class.java))
+            Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show()
+        }
     }
     private fun initRecyclerView() {
         binding.myRecyclerView.layoutManager = LinearLayoutManager( this)
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.home -> {
+                startActivity(Intent(this, HomeMain::class.java))
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+
+                return true
+            }
+            R.id.lista -> {
+                startActivity(Intent(this, MainActivity::class.java))
+                Toast.makeText(this, "Lista de Peliculas", Toast.LENGTH_SHORT).show()
+
+                return true
+            }
+            R.id.login-> {
+                startActivity(Intent(this, LoginActivity::class.java))
+                Toast.makeText(this, "Vuelta al Login", Toast.LENGTH_SHORT).show()
+                return true
+            }
+
+
+
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+
 }
