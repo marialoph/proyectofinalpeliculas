@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.peliculas.R
-import com.example.peliculas.adapter.AdapterPeliculas
+import com.example.peliculas.ui.adapter.AdapterPeliculas
 
 import com.example.peliculas.databinding.RecyclerviewBinding
 import com.example.peliculas.models.Peliculas

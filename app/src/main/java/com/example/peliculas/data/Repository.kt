@@ -1,4 +1,4 @@
-package com.example.peliculas.objects_models
+package com.example.peliculas.data
 
 import com.example.peliculas.models.Peliculas
 

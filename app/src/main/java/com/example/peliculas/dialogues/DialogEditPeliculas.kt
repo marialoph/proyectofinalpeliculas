@@ -1,11 +1,8 @@
 package com.example.peliculas.dialogues
 
-import android.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
 
-import com.example.peliculas.MainActivity
-import com.example.peliculas.models.ArgumentsPeliculas
 import com.example.peliculas.models.Peliculas
 import android.os.Bundle;
 import android.view.View

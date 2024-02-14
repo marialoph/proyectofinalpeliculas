@@ -1,17 +1,20 @@
 package com.example.peliculas
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.peliculas.ui.views.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
     private lateinit var btnLogin: Button
     private lateinit var textEmail: EditText
     private lateinit var textCont: EditText
+    private lateinit var btnRegister : Button
 
     private val MYUSER = "maria@gmail.com"
     private val MYPASS = "maria"

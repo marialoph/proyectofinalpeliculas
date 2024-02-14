@@ -5,10 +5,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.widget.EditText
 import android.widget.Toast
-import com.example.peliculas.MainActivity
+import com.example.peliculas.ui.views.MainActivity
 import com.example.peliculas.R
-import com.example.peliculas.adapter.AdapterPeliculas
-import com.example.peliculas.dao.DaoPeliculas
+import com.example.peliculas.ui.adapter.AdapterPeliculas
+import com.example.peliculas.models.DaoPeliculas
 import com.example.peliculas.models.Peliculas
 
 class Controller ( val context : Context){

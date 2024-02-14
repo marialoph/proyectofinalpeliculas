@@ -1,10 +1,9 @@
-package com.example.peliculas.dao
+package com.example.peliculas.models
 
-import com.example.peliculas.interfaces.PeliculasRepository
-import com.example.peliculas.models.Peliculas
-import com.example.peliculas.objects_models.Repository
+import com.example.peliculas.data.Repository
+import javax.inject.Inject
 
-class DaoPeliculas private constructor(): PeliculasRepository {
+class DaoPeliculas @Inject constructor(): PeliculasRepository {
     companion object {
         val myDao: DaoPeliculas by lazy {
             DaoPeliculas()

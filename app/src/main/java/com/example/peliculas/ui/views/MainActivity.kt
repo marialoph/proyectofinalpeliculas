@@ -1,5 +1,6 @@
-package com.example.peliculas
+package com.example.peliculas.ui.views
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,21 +13,34 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import androidx.navigation.ui.setupWithNavController
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.peliculas.AboutUs
+import com.example.peliculas.HomeMain
+import com.example.peliculas.LoginActivity
+import com.example.peliculas.R
 import com.example.peliculas.controler.Controller
 import com.example.peliculas.databinding.ActivityMainBinding
 import com.example.peliculas.models.Peliculas
-import com.google.android.material.bottomappbar.BottomAppBar
+
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var appBarConfiguration: AppBarConfiguration
+    @Inject
     lateinit var controller : Controller
     lateinit var binding : ActivityMainBinding
     lateinit var navController: NavController
@@ -42,15 +56,22 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        // Acceder al BottomNavigationView dentro del BottomAppBar
+       // val drawerLayout: DrawerLayout = binding.drawerLayout
+        //val navView : NavigationView = binding.navView
+        //val navController = Navigation.findNavController(this,R.id.nav_host_fragment)
+
+
+       //val appBarConfiguration = AppBarConfiguration.Builder(navController.graph).
+         //  setDrawerLayout(drawerLayout).build()
+
+        //toolbar.setupWithNavController(navController, appBarConfiguration)
+        //navView.setupWithNavController(navController)
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-
         init()
     }
+    @SuppressLint("SuspiciousIndentation")
     fun init(){
         initRecyclerView()
         controller = Controller(this)
@@ -128,7 +149,7 @@ class MainActivity : AppCompatActivity() {
 
                 return true
             }
-            R.id.login-> {
+            R.id.login -> {
                 startActivity(Intent(this, LoginActivity::class.java))
                 Toast.makeText(this, "Vuelta al Login", Toast.LENGTH_SHORT).show()
                 return true

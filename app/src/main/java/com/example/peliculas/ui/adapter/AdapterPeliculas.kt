@@ -1,4 +1,4 @@
-package com.example.peliculas.adapter
+package com.example.peliculas.ui.adapter
 import android.view.ViewGroup
 
 import android.text.Layout
