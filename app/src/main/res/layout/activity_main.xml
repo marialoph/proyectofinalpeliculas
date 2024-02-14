@@ -9,19 +9,18 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <!-- Contenido principal (app_bar_main) -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- App Bar Layout -->
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/Theme.peliculas.AppBarOverlay">
 
-            <!-- Toolbar -->
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
@@ -31,7 +30,7 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Content Layout -->
+
         <FrameLayout
             android:id="@+id/nav_host_fragment"
             android:layout_width="match_parent"
@@ -49,7 +48,7 @@
 
         </FrameLayout>
 
-        <!-- FloatingActionButton -->
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_add"
             android:layout_width="wrap_content"
@@ -59,7 +58,7 @@
             android:layout_marginBottom="16dp"
             app:srcCompat="@drawable/baseline_add_circle_outline_24" />
 
-        <!-- BottomAppBar -->
+
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/appBottomBar"
             android:layout_width="match_parent"
@@ -67,7 +66,7 @@
             android:layout_gravity="bottom">
 
 
-                <!-- Botones de acción en el lado derecho -->
+
                 <ImageButton
                     android:id="@+id/casa"
                     android:layout_width="wrap_content"
@@ -83,17 +82,13 @@
                     android:layout_marginStart="157dp"
                     android:src="@drawable/aboutus" />
 
-                <!-- Puedes agregar más botones según tus necesidades -->
 
-
-
-            <!-- Contenido del BottomAppBar, como acciones, menús, etc. -->
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-    <!-- Cajón de navegación (NavigationView) -->
+
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
