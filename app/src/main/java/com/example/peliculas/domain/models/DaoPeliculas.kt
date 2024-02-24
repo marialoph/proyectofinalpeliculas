@@ -1,4 +1,4 @@
-package com.example.peliculas.models
+package com.example.peliculas.domain.models
 
 import com.example.peliculas.data.Repository
 import javax.inject.Inject

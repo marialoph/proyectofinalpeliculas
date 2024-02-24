@@ -1,4 +1,4 @@
-package com.example.peliculas.controler
+package com.example.peliculas.Fragment
 
 import android.app.AlertDialog
 import android.content.Context
@@ -8,8 +8,8 @@ import android.widget.Toast
 import com.example.peliculas.ui.views.MainActivity
 import com.example.peliculas.R
 import com.example.peliculas.ui.adapter.AdapterPeliculas
-import com.example.peliculas.models.DaoPeliculas
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.DaoPeliculas
+import com.example.peliculas.domain.models.Peliculas
 
 class Controller ( val context : Context){
     lateinit var adapter : AdapterPeliculas

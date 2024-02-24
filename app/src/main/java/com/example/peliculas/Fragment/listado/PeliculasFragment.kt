@@ -11,7 +11,7 @@ import com.example.peliculas.R
 import com.example.peliculas.ui.adapter.AdapterPeliculas
 
 import com.example.peliculas.databinding.RecyclerviewBinding
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 /*
 class PeliculasFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView

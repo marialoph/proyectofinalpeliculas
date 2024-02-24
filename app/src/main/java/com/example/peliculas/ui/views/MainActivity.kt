@@ -13,26 +13,20 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupWithNavController
-import androidx.navigation.ui.setupWithNavController
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.peliculas.AboutUs
 import com.example.peliculas.HomeMain
 import com.example.peliculas.LoginActivity
 import com.example.peliculas.R
-import com.example.peliculas.controler.Controller
+import com.example.peliculas.Fragment.Controller
 import com.example.peliculas.databinding.ActivityMainBinding
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -151,7 +145,7 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.login -> {
                 startActivity(Intent(this, LoginActivity::class.java))
-                Toast.makeText(this, "Vuelta al Login", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Cerrar sesion", Toast.LENGTH_SHORT).show()
                 return true
             }
 

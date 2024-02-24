@@ -2,7 +2,7 @@ package com.example.peliculas.ui.modelview
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

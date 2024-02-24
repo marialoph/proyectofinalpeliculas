@@ -1,4 +1,4 @@
-package com.example.peliculas.models
+package com.example.peliculas.domain.models
 
 object ArgumentsPeliculas {
     const val ARGUMENT_TITULO = "titulo"

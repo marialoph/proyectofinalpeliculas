@@ -1,4 +1,4 @@
-package com.example.peliculas.models
+package com.example.peliculas.domain.models
 
 class Peliculas(
     var titulo: String,

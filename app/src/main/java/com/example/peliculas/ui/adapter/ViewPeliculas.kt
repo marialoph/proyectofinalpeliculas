@@ -5,7 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.peliculas.R
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel

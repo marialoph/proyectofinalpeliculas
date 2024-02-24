@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import androidx.recyclerview.widget.RecyclerView
 import com.example.peliculas.R
 import com.example.peliculas.databinding.ItemPeliculasBinding
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 import java.util.zip.Inflater
 
 class AdapterPeliculas(

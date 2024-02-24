@@ -1,6 +1,6 @@
 package com.example.peliculas.data
 
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 
 object Repository {
     val listaPelis : List<Peliculas> = listOf(

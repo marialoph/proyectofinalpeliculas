@@ -3,17 +3,17 @@ package com.example.peliculas.dialogues
 import androidx.fragment.app.DialogFragment
 
 
-import com.example.peliculas.models.Peliculas
+import com.example.peliculas.domain.models.Peliculas
 import android.os.Bundle;
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.example.peliculas.R
-import com.example.peliculas.models.ArgumentsPeliculas.ARGUMENT_ANNO
-import com.example.peliculas.models.ArgumentsPeliculas.ARGUMENT_DIRECTOR
-import com.example.peliculas.models.ArgumentsPeliculas.ARGUMENT_GENERO
-import com.example.peliculas.models.ArgumentsPeliculas.ARGUMENT_IMAGE
-import com.example.peliculas.models.ArgumentsPeliculas.ARGUMENT_TITULO
+import com.example.peliculas.domain.models.ArgumentsPeliculas.ARGUMENT_ANNO
+import com.example.peliculas.domain.models.ArgumentsPeliculas.ARGUMENT_DIRECTOR
+import com.example.peliculas.domain.models.ArgumentsPeliculas.ARGUMENT_GENERO
+import com.example.peliculas.domain.models.ArgumentsPeliculas.ARGUMENT_IMAGE
+import com.example.peliculas.domain.models.ArgumentsPeliculas.ARGUMENT_TITULO
 
 class DialogEditPeliculas(
     val PeliculaToUpdate: Peliculas,
