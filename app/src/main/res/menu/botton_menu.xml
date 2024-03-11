@@ -2,6 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:title="Home"
+        android:title="Estreno peliculas"
         android:icon="@drawable/baseline_add_home_24" />
 </menu>

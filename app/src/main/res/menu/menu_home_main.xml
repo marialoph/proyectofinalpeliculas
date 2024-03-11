@@ -5,7 +5,7 @@
     <item
         android:id="@+id/home"
         android:orderInCategory="100"
-        android:title="home"
+        android:title="Estrenos peliculas"
         app:showAsAction="never"
         />
     <item

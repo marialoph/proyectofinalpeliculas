@@ -57,6 +57,9 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.44")
     implementation("androidx.room:room-runtime:2.4.2")
     implementation("androidx.room:room-ktx:2.4.2")
+    implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     annotationProcessor("androidx.room:room-compiler:2.4.2")
-
+    implementation ("com.squareup.picasso:picasso:2.71828")
 }

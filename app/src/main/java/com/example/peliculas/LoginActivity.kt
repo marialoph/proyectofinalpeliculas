@@ -33,15 +33,58 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
-            iniciarLogin()
+            iniciarSesion()
+        }
+        btnRegister.setOnClickListener {
+            // Iniciar la actividad de registro
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
-        if(islogeado()){
-            //val i = Intent(this, MainActivity::class.java)
-            //startActivity(i)
+        val email = shared.getString("email", "")
+        val password = shared.getString("password", "")
+
+        if (!email.isNullOrEmpty() && !password.isNullOrEmpty()) {
+            textEmail.setText(email)
+            textPass.setText(password)
+            iniciarSesion()
+
         }
     }
+    private fun iniciarSesion(){
+        val email = textEmail.text.toString()
+        val password = textPass.text.toString()
 
+        // Obtener los datos del usuario registrados
+        val sharedPreferences = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE)
+        val registeredEmail = sharedPreferences.getString("email", null)
+        val registeredPassword = sharedPreferences.getString("password", null)
+
+        if (registeredEmail != null && registeredPassword != null) {
+            // Verificar si los datos de inicio de sesión coinciden con los datos registrados
+            if (email == registeredEmail && password == registeredPassword) {
+                // Autenticación exitosa
+                // Guardar el estado de inicio de sesión
+                val editor = sharedPreferences.edit()
+                editor.putBoolean("isLogin", true)
+                editor.apply()
+
+                // Iniciar la actividad principal
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+
+                // Mostrar un mensaje de bienvenida
+                Toast.makeText(this, "Se ha iniciado sesión", Toast.LENGTH_SHORT).show()
+            } else {
+                // Autenticación fallida
+                Toast.makeText(this, "Email o contraseña incorrecta", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            // No se encontraron datos de usuario registrados
+            Toast.makeText(this, "No hay datos de usuario registrados", Toast.LENGTH_SHORT).show()
+        }
+    }
+/**
     private fun iniciarLogin() {
         val email = textEmail.text.toString()
         val pass = textPass.text.toString()
@@ -66,6 +109,7 @@ class LoginActivity : AppCompatActivity() {
         val isLogin = shared.getBoolean("isLogin", false)
         return isLogin
     }
+    **/
 
 
     private fun cargaPreferenciasCompartidas(){

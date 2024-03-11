@@ -1,6 +1,6 @@
 package com.example.peliculas.domain.models
 
-import com.example.peliculas.data.Repository
+import com.example.peliculas.data.datasource.onject_modules.Repository
 import javax.inject.Inject
 
 class DaoPeliculas @Inject constructor(): PeliculasRepository {
