@@ -200,11 +200,11 @@ class MainActivity : AppCompatActivity() {
                     controller.agregarPelicula(nuevaPelicula)
                     controller.adapter.notifyDataSetChanged()
 
-                    // Cerrar el diálogo
+
                     dialog.dismiss()
                     Toast.makeText(this, "Se ha creado la película", Toast.LENGTH_SHORT).show()
                 } else {
-                    // Mostrar un mensaje de error si algún campo obligatorio está vacío o la URI de la imagen es nula
+
                     Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
                 }
 
@@ -303,7 +303,7 @@ class MainActivity : AppCompatActivity() {
         binding.myRecyclerView.layoutManager = LinearLayoutManager( this)
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         menuInflater.inflate(R.menu.main, menu)
         return true
     }
@@ -350,13 +350,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun obtenerFotoUsuario(): Drawable? {
-        // Obtener la foto del usuario desde las preferencias compartidas
+
         val imagenPath = shared.getString("imagenPath", null)
         return if (imagenPath != null) {
-            // Cargar la imagen desde el almacenamiento interno usando la ruta de la imagen
+
             Drawable.createFromPath(imagenPath)
         } else {
-            // Si no hay imagen guardada, devuelve null o una imagen predeterminada
+
             null
         }
     }
@@ -385,7 +385,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun guardarDatosUsuario(email: String, password: String) {
-        // Guarda los datos del usuario en preferencias compartidas
+
         val sharedPreferences = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("email", email)
