@@ -32,7 +32,7 @@ class DialogEditPeliculas(
         val director = view.findViewById<TextView>(R.id.director)
         val genero = view.findViewById<TextView>(R.id.genero)
         val anno = view.findViewById<TextView>(R.id.anno)
-        val imagen = view.findViewById<TextView>(R.id.image)
+        val imagen = view.findViewById<TextView>(R.id.imagen)
 
         if (arguments != null) {
             titulo.text= arguments.getString(ARGUMENT_TITULO)

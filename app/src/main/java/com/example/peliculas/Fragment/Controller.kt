@@ -1,17 +1,29 @@
 package com.example.peliculas.Fragment
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.peliculas.ui.views.MainActivity
 import com.example.peliculas.R
 import com.example.peliculas.ui.adapter.AdapterPeliculas
 import com.example.peliculas.domain.models.DaoPeliculas
 import com.example.peliculas.domain.models.Peliculas
 
-class Controller ( val context : Context){
+
+class Controller (val context : Context){
     lateinit var adapter : AdapterPeliculas
     private lateinit var myList: MutableList<String>
     lateinit var listPelis : MutableList<Peliculas>
@@ -49,6 +61,7 @@ class Controller ( val context : Context){
 
     }
 
+    @SuppressLint("MissingInflatedId")
     private fun updatePeliculas(position: Int) {
         val pelicula = listPelis[position]
         val builder = AlertDialog.Builder(context)
@@ -61,28 +74,35 @@ class Controller ( val context : Context){
         val genero = view.findViewById<EditText>(R.id.director)
         val anno = view.findViewById<EditText>(R.id.genero)
         val director = view.findViewById<EditText>(R.id.anno)
-        val imagen = view.findViewById<EditText>(R.id.image)
+        val imagen = view.findViewById<ImageView>(R.id.iv_pelis) // Cambiar el tipo a ImageView
+        val botonImagen = view.findViewById<Button>(R.id.botonimagen)
 
         titulo.setText(pelicula.titulo)
         genero.setText(pelicula.genero)
         anno.setText(pelicula.anno.toString())
         director.setText(pelicula.diretor)
-        imagen.setText(pelicula.imageUrl)
+
+        // Cargar la imagen actual en el ImageView
+        // Supongamos que la imagen está almacenada en una URL
+        Glide.with(context)
+            .load(pelicula.imageUrl)
+            .into(imagen)
+
 
         builder.setPositiveButton("Guardar") { dialog, which ->
             val nuevoTitulo = titulo.text.toString()
             val nuevoGenero = genero.text.toString()
             val nuevoAnno = anno.text.toString()
             val nuevoDirector = director.text.toString()
-            val nuevaImagen = imagen.text.toString()
+            val nuevaImagen = imagen.toString() // Aquí obtén la nueva imagen si es necesario
 
             if (nuevoTitulo.isNotEmpty()) {
                 pelicula.titulo = nuevoTitulo
                 pelicula.genero = nuevoGenero
                 pelicula.anno = nuevoAnno.toIntOrNull() ?: 0
                 pelicula.diretor = nuevoDirector
-                pelicula.imageUrl = nuevaImagen
-
+                // Si se ha seleccionado una nueva imagen, actualiza la URL de la imagen
+                // pelicula.imageUrl = nuevaImagen
                 adapter.notifyItemChanged(position)
 
                 Toast.makeText(context, "Película actualizada correctamente", Toast.LENGTH_SHORT).show()
