@@ -7,6 +7,7 @@ import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.view.LayoutInflater
 import android.widget.Button
@@ -27,6 +28,7 @@ class Controller (val context : Context){
     lateinit var adapter : AdapterPeliculas
     private lateinit var myList: MutableList<String>
     lateinit var listPelis : MutableList<Peliculas>
+    val PICK_IMAGE_REQUEST_CODE = 100
     init {
 
         initData()
@@ -74,40 +76,37 @@ class Controller (val context : Context){
         val genero = view.findViewById<EditText>(R.id.director)
         val anno = view.findViewById<EditText>(R.id.genero)
         val director = view.findViewById<EditText>(R.id.anno)
-        val imagen = view.findViewById<ImageView>(R.id.iv_pelis) // Cambiar el tipo a ImageView
+        val imagen = view.findViewById<ImageView>(R.id.iv_pelis)
         val botonImagen = view.findViewById<Button>(R.id.botonimagen)
 
         titulo.setText(pelicula.titulo)
         genero.setText(pelicula.genero)
         anno.setText(pelicula.anno.toString())
         director.setText(pelicula.diretor)
-
-        // Cargar la imagen actual en el ImageView
-        // Supongamos que la imagen está almacenada en una URL
-        Glide.with(context)
-            .load(pelicula.imageUrl)
-            .into(imagen)
-
+        botonImagen.setOnClickListener {
+            pickPhotoFromGallery()
+        }
 
         builder.setPositiveButton("Guardar") { dialog, which ->
             val nuevoTitulo = titulo.text.toString()
             val nuevoGenero = genero.text.toString()
             val nuevoAnno = anno.text.toString()
             val nuevoDirector = director.text.toString()
-            val nuevaImagen = imagen.toString() // Aquí obtén la nueva imagen si es necesario
 
             if (nuevoTitulo.isNotEmpty()) {
                 pelicula.titulo = nuevoTitulo
                 pelicula.genero = nuevoGenero
                 pelicula.anno = nuevoAnno.toIntOrNull() ?: 0
                 pelicula.diretor = nuevoDirector
-                // Si se ha seleccionado una nueva imagen, actualiza la URL de la imagen
-                // pelicula.imageUrl = nuevaImagen
+
+
                 adapter.notifyItemChanged(position)
+
 
                 Toast.makeText(context, "Película actualizada correctamente", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(context, "El título no puede estar vacío", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(context, "Termine de rellenar todos los campos", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -115,10 +114,15 @@ class Controller (val context : Context){
             dialog.dismiss()
         }
 
-        val alertDialog = builder.create()
-        alertDialog.show()
+        builder.show()
     }
 
+    private fun pickPhotoFromGallery() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        val activity = context as? Activity
+        activity?.startActivityForResult(intent, PICK_IMAGE_REQUEST_CODE)
+    }
 
     private fun deletePeliculas(pos: Int) {
         val peliculaTitulo = listPelis[pos].titulo

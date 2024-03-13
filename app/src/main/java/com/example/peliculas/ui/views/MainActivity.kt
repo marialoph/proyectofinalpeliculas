@@ -76,11 +76,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var shared: SharedPreferences
     private val REQUEST_IMAGE_PICK =100
     private val  RESPUESTA_PERMISO_GALERIA = 300;
-    private val REQUEST_SELECT_IMAGE = 100
-    private lateinit var imagen1: ImageView
+
+
     private var selectedImageUri: Uri? = null
-    private val REQUEST_READ_EXTERNAL_STORAGE = 100
-    private val REQUEST_IMAGE_CAPTURE=300;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -107,15 +106,14 @@ class MainActivity : AppCompatActivity() {
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
-                    // Acción cuando se selecciona el elemento "Home"
-                    // Por ejemplo, puedes iniciar una nueva actividad
+
                     startActivity(Intent(this, HomeMain::class.java))
-                    true // Devuelve true para indicar que el evento ha sido manejado
+                    true
                 }
 
                 R.id.nav_gallery -> {
                     startActivity(Intent(this, MainActivity::class.java))
-                    true // Devuelve true para indicar que el evento ha sido manejado
+                    true
                 }
                 R.id.nav_login ->{
                     startActivity(Intent(this, LoginActivity::class.java))
@@ -123,8 +121,8 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 else -> {
-                    // Acción por defecto
-                    true // Devuelve true para indicar que el evento ha sido manejado
+
+                    true
                 }
             }
         }
@@ -146,19 +144,19 @@ class MainActivity : AppCompatActivity() {
 
 
     fun iniciarSesion() {
-        // Obtener el correo del usuario registrado
+
         val sharedPreferences = getSharedPreferences("misPreferencias", Context.MODE_PRIVATE)
         val registeredEmail = sharedPreferences.getString("email", null)
 
-        // Verificar si se ha registrado un correo
+
         if (!registeredEmail.isNullOrEmpty()) {
             val headerView = binding.navView.getHeaderView(0)
             val textViewCorreo: TextView = headerView.findViewById(R.id.email)
 
-            // Mostrar el correo del usuario en el NavigationView
+
             textViewCorreo.text = registeredEmail
         } else {
-            // No se encontró un correo registrado, puedes manejarlo de acuerdo a tus necesidades
+
             Toast.makeText(this, "No se encontró un correo registrado", Toast.LENGTH_SHORT).show()
         }
     }
@@ -193,7 +191,7 @@ class MainActivity : AppCompatActivity() {
                 val genero = view.findViewById<EditText>(R.id.genero).text.toString()
                 val anno = view.findViewById<EditText>(R.id.anno).text.toString()
 
-                // Obtener la URI de la imagen seleccionada
+
                 val imagenUri = selectedImageUri
 
                 if (titulo.isNotEmpty() && director.isNotEmpty() && genero.isNotEmpty() && anno.isNotEmpty() && imagenUri != null) {
@@ -384,9 +382,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun agregarFotoGaleria(archivoImagen: File) {
-
-    }
 
 
     private fun guardarDatosUsuario(email: String, password: String) {
@@ -401,12 +396,3 @@ class MainActivity : AppCompatActivity() {
 
 
 }
-/**
-val botonImagen = findViewById<Button>(R.id.botonimagen)
-botonImagen.setOnClickListener {
-// Inicia la galería
-val intent = Intent(Intent.ACTION_PICK)
-intent.type = "image/*"
-startActivityForResult(intent, REQUEST_SELECT_IMAGE)
-}
- **/
